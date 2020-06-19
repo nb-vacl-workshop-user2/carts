@@ -21,7 +21,7 @@ spec:
         - name: DT_TAGS
           value: "Product=Sockshop ServiceType=Backend Owner=Nate BusinessUnit=RetailOnline"
         - name: DT_CUSTOM_PROP
-          value: "SERVICE_TYPE=BACKEND"
+          value: "app-name=${env.APP_NAME} build-no=${env.BUILD_NUMBER} git-commit=${env.GIT_COMMIT} git-url=${env.GIT_URL}"
         resources:
           limits:
             cpu: 500m
