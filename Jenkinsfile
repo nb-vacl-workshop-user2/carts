@@ -66,7 +66,7 @@ pipeline {
       steps {
         container('kubectl') {
           sh "sed -i 's#image: .*#image: ${env.TAG_DEV}#' manifest/carts.yml"
-	  sh "sed -i 's#value: "SERVICE_TYPE=BACKEND" .*#value: "app_name=${env.APP_NAME} build-no=${env.BUILD_NUMBER} git-commit=${env.GIT_COMMIT}"#' manifest/carts.yml"
+	  sh "sed -i 's#value: \"SERVICE_TYPE=BACKEND\" .*#value: "app_name=${env.APP_NAME} build-no=${env.BUILD_NUMBER} git-commit=${env.GIT_COMMIT}"#' manifest/carts.yml"
           sh "kubectl -n dev apply -f manifest/carts.yml"
         }
       }
